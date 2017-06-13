@@ -22,17 +22,38 @@ class Post(models.Model):
         if not self.tags.filter(id=tag.id).exists():
             self.tags.add(tag)
 
-    @@property
+    @property
     def like_count(self):
         return self.like_users.count()
+
 
 class PostLike(models.Model):
     post = models.ForeignKey(Post)
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_date = models.DateTimeField(auto_now_add=True)
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return 'Tag({})'.format(self.name)
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now_add=True)
+    like_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        through='CommentLike',
+        related_name='like_comments',
+    )
+
+
+class CommentLike(models.Model):
+    comment = models.ForeignKey(Comment)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created_date = models.DateTimeField(auto_now_add=True)
