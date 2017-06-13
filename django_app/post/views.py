@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from django.contrib.auth import get_user_model
+from django.shortcuts import render, redirect
+from .models import Post
 
-# Create your views here.
+User = get_user_model()
+
+
+def post_list(request):
+    posts = Post.objects.all()
+    context = {
+        'posts': posts
+    }
+    return render(request, 'post/post_list.html', context)
