@@ -2,4 +2,14 @@ article.post {
   .post-photo-container {
     img { width: 100%; height: auto;}
   }
+
+  header > div.post-header-left {
+    height: 60px;
+    padding: 16px;
+    text-align: center;
+    span {
+      line-height: 60px;
+      vertical-align: middle;
+    }
+  }
 }
