@@ -26,6 +26,9 @@ class Post(models.Model):
     def like_count(self):
         return self.like_users.count()
 
+    def __str__(self):
+        return '{} - {}'.format(self.author, self.created_date)
+
 
 class PostLike(models.Model):
     post = models.ForeignKey(Post)
