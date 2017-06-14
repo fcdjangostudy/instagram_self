@@ -39,3 +39,11 @@ def post_create(request):
         return redirect('post:post_detail', post_pk=post.pk)
     else:
         return render(request, 'post/post_create.html')
+
+
+def post_delete(request, post_pk):
+    post = Post.objects.get(pk=post_pk)
+    post.delete()
+    return redirect('post:post_list')
+
+

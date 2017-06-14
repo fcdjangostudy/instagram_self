@@ -3,6 +3,7 @@
     <div class="post-header-left">
       <img src="" alt="">
       <span>{{ post.author }}의 포스트</span>
+        <span><button type="submit"><a href="{% url 'post:post_delete' post_pk=post.pk%}">삭제하기</a></button></span>
     </div>
     <div class="post-header-right">
 
