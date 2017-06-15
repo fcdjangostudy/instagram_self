@@ -2,19 +2,20 @@
 
 {% block content %}
     <form action="" method="POST">
-        <div>
+    {% csrf_token %}
+        <div class="login">
             <lable for="id-username">UserName</lable>
             <input id="id-username" type="text" name="username" placeholder="username">
         </div>
-        <div>
+        <div class="login">
             <label for="id-password1">password1</label>
             <input id="id-password1" type="password" name="password1" placeholder="password1">
         </div>
-        <div>
+        <div class="login">
             <label for="id-password2">password2</label>
             <input id="id-password2" type="password" name="password2" placeholder="password2">
         </div>
-    <button type="submit">가입하기</button>
+    <button class="btn" type="submit">가입하기</button>
     </form>
 
 {% endblock %}

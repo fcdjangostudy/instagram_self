@@ -40,6 +40,7 @@
             <div class="test">
                 {% if user.is_authenticated %}
                     {{ user }}가 로그인 중입니다.
+                    <span><a href="{% url 'member:signup' %}"><button class="btn-r">회원가입</button></a></span>
                     <span><a href="{% url 'member:logout' %}"><button class="btn-r">로그아웃</button></a></span>
                 {% else %}
                     <a href="{% url 'member:login' %}">로그인하세요</a>
