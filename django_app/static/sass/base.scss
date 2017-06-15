@@ -3,3 +3,32 @@ html, body {
   font-size: 14px;
   line-height: 18px;
 }
+.test {
+  padding: 20px 0 20px 0;
+  color: white;
+  font-style: oblique;
+  background-color: #228844;
+  font-size: 20px;
+  text-align: center;
+
+  a{
+      text-decoration: none;
+  }
+}
+
+.login {
+  margin-top: 10px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.btn {
+  float: inherit;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-r {
+    float: right;
+
+}

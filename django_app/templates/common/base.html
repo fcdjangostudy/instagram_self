@@ -17,7 +17,7 @@
     <header class="top-header">
         <nav>
             <div class="nav-left nav-item">
-                <a href="#">
+                <a href="{% url 'post:post_list' %}">
                     <img src="{% static 'images/logo.png' %}" alt="">
                 </a>
             </div>
@@ -36,12 +36,23 @@
                 </a>
             </div>
         </nav>
+        <nav>
+            <div class="test">
+                {% if user.is_authenticated %}
+                    {{ user }}가 로그인 중입니다.
+                    <span><a href="{% url 'member:logout' %}"><button class="btn-r">로그아웃</button></a></span>
+                {% else %}
+                    <a href="{% url 'member:login' %}">로그인하세요</a>
+                {% endif %}
+            </div>
+        </nav>
+
     </header>
     <div class="container">
         {% block content %}
         {% endblock %}
     </div>
-</div> {#해더#}
+</div>
 
 </body>
 </html>
