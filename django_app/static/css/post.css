@@ -1,15 +1,18 @@
 article.post .post-photo-container img {
   width: 100%;
-  height: auto;
-}
-
+  height: auto; }
 article.post header > div.post-header-left {
   height: 60px;
   padding: 16px;
-  text-align: center;
-}
-
-article.post header > div.post-header-left span {
+  text-align: center; }
+  article.post header > div.post-header-left span {
+    line-height: 60px;
+    vertical-align: middle; }
+article.post a.icon {
+  height: 60px;
   line-height: 60px;
-  vertical-align: middle;
-}
+  text-decoration: none; }
+  article.post a.icon img {
+    vertical-align: middle; }
+
+/*# sourceMappingURL=post.css.map */

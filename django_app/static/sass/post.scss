@@ -1,6 +1,9 @@
 article.post {
   .post-photo-container {
-    img { width: 100%; height: auto;}
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   header > div.post-header-left {
@@ -9,6 +12,15 @@ article.post {
     text-align: center;
     span {
       line-height: 60px;
+      vertical-align: middle;
+    }
+  }
+
+  a.icon {
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+    img {
       vertical-align: middle;
     }
   }

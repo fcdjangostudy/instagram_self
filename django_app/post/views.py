@@ -44,6 +44,27 @@ def post_create(request):
 def post_delete(request, post_pk):
     post = Post.objects.get(pk=post_pk)
     post.delete()
+    print(request.META.get('HTTP_REFERER'))
+    print(request.META.get('HTTP_HOST'))
     return redirect('post:post_list')
 
 
+def post_like(request, post_pk):
+    post = Post.objects.get(pk=post_pk)
+    post.postlike_set.create(user=User.objects.first())
+    pre_url = request.META.get('HTTP_REFERER').replace('http://' + request.META.get('HTTP_HOST'), "")
+    if pre_url == "/post/":
+        return redirect(pre_url)
+    else:
+        return redirect('post:post_detail', post_pk=post_pk)
+
+
+def post_unlike(request, post_pk):
+    post = Post.objects.get(pk=post_pk)
+    like = post.postlike_set.get(user=User.objects.first())
+    like.objects.delete()
+    pre_url = request.META.get('HTTP_REFERER').replace('http://' + request.META.get('HTTP_HOST'), "")
+    if pre_url == "/post/":
+        return redirect(pre_url)
+    else:
+        return redirect('post:post_detail', post_pk=post_pk)
