@@ -44,6 +44,7 @@
                     <span><a href="{% url 'member:logout' %}"><button class="btn-r">로그아웃</button></a></span>
                 {% else %}
                     <a href="{% url 'member:login' %}">로그인하세요</a>
+                    <span><a href="{% url 'member:signup' %}"><button class="btn-r">회원가입</button></a></span>
                 {% endif %}
             </div>
         </nav>

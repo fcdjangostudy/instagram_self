@@ -4,8 +4,9 @@
     <div>
         <form action="" method="POST">
             {% csrf_token %}
-            <div class="login">아이디 : <input type="text" name="username" placeholder="username"></div>
-            <div class="login">패스워드 : <input type="password" name="password" placeholder="password"></div>
+            {{ form }}
+{#            <div class="login">아이디 : <input type="text" name="username" placeholder="username"></div>#}
+{#            <div class="login">패스워드 : <input type="password" name="password" placeholder="password"></div>#}
             <span><button class="btn" type="submit">로그인</button></span>
         </form>
     </div>
